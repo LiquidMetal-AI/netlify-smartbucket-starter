@@ -123,7 +123,7 @@ elements.uploadButton.addEventListener('click', async () => {
 
     const data = await response.json();
 
-    showStatus('File uploaded successfully! You can now search for its contents.', 'success');
+    showStatus('File uploaded successfully! It will be indexed in 1-2 minutes, then you can search for its contents.', 'success');
 
     // Reset file input
     selectedFile = null;

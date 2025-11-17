@@ -28,6 +28,8 @@ export const handler = async (event, context) => {
     const bucketLocation = {
       bucket: {
         name: process.env.RAINDROP_SMARTBUCKET_NAME,
+        version: process.env.RAINDROP_APPLICATION_VERSION,
+        applicationName: process.env.RAINDROP_APPLICATION_NAME,
       }
     };
 
@@ -39,7 +41,7 @@ export const handler = async (event, context) => {
     });
 
     // Format results
-    const results = response.chunks?.map(chunk => ({
+    const results = response.results?.map(chunk => ({
       text: chunk.text,
       score: Math.round(chunk.score * 100),
       fileName: chunk.source?.object || 'Unknown',
